@@ -159,7 +159,7 @@ def parse_node_str(node_str):
                     # try to get shape
                     shape_str = node_type.split('(')[-1].split(')')[0]
                     if ', ' in shape_str:
-                        shape = [int(s) for s in shape_str.split(', ')]
+                        shape = [int(s) for s in shape_str.split(', ') if s.isdigit()]
                         node_dict[node_name]['shape'] = shape
                     else:
                         node_dict[node_name]['shape'] = []
