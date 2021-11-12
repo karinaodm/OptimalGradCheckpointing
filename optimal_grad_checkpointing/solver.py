@@ -3,8 +3,12 @@ import networkx as nx
 import torch
 from queue import Queue
 from tqdm import tqdm
-from utils import add_vertex_cost_to_edge
-from graph import replace_subgraph, Segment, parse_computation_graph
+try:
+    from utils import add_vertex_cost_to_edge
+    from graph import replace_subgraph, Segment, parse_computation_graph
+except ImportError:
+    from .utils import add_vertex_cost_to_edge
+    from .graph import replace_subgraph, Segment, parse_computation_graph
 
 
 def optimal_grad_checkpointing(net, input):

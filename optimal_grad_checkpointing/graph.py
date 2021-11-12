@@ -4,7 +4,10 @@ from queue import Queue
 import networkx as nx
 import torch
 import torch.nn.functional as F
-from net.layer import TupleConstruct, TupleIndexing, Mul2, Add2, BasicIdentity, Cat, ListConstruct, Flatten, View, FunctionWrapperV2
+try:
+    from net.layer import TupleConstruct, TupleIndexing, Mul2, Add2, BasicIdentity, Cat, ListConstruct, Flatten, View, FunctionWrapperV2
+except ImportError:
+     from .net.layer import TupleConstruct, TupleIndexing, Mul2, Add2, BasicIdentity, Cat, ListConstruct, Flatten, View, FunctionWrapperV2
 from copy import deepcopy
 
 # todo: get shapes of all the tensors when tracing
